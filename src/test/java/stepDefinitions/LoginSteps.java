@@ -1,11 +1,13 @@
 package stepDefinitions;
 
+import io.github.bonigarcia.wdm.ChromeDriverManager;
+
 import java.util.concurrent.TimeUnit;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import cucumber.api.java.en.Given;
@@ -17,9 +19,10 @@ public class LoginSteps {
 	WebDriver driver;
 	WebDriverWait wait;
 
-	@Given("^I open application$")
+	/*@Given("^I open application$")
 	public void iOpenApplication() {
-		driver = new FirefoxDriver();
+		ChromeDriverManager.getInstance().setup();
+		driver = new ChromeDriver();
 		driver.get("http://live.guru99.com");
 		wait = new WebDriverWait(driver, 30);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -58,4 +61,9 @@ public class LoginSteps {
 		String passwordlMessageActual = driver.findElement(By.xpath("//div[@id='advice-required-entry-pass']")).getText();
 		Assert.assertEquals(passwordMessageExpected, passwordlMessageActual);
 	}
+	
+	@When("^I close browser$")
+	public void iCloseBrowser() {
+		driver.quit();
+	}*/
 }

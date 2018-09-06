@@ -20,7 +20,7 @@ import cucumber.api.junit.Cucumber;
 		snippets = SnippetType.CAMELCASE, 
 		
 		// run tag
-		tags = { "@run_automation" })
+		tags = { "@datadriven" })
 
 public class RunCucumber {
 
