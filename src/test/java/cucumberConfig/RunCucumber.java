@@ -20,7 +20,7 @@ import cucumber.api.junit.Cucumber;
 		snippets = SnippetType.CAMELCASE, 
 		
 		// run tag
-		tags = { "@datadriven" })
+		tags = { "@payment" })
 
 public class RunCucumber {
 

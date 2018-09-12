@@ -22,12 +22,12 @@ public class LoginPagePO extends AbstractPage {
 		return BankGuruPageManagerDriver.getRegisterPage(driver);
 	}
 
-	public synchronized void inputUsername(String username) {
+	public void inputUsername(String username) {
 		waitForControlVisible(driver, LoginPageUI.USERNAME_TXT);
 		sendkeyToElement(driver, LoginPageUI.USERNAME_TXT, username);
 	}
 
-	public synchronized void inputPassword(String pwd) {
+	public void inputPassword(String pwd) {
 		waitForControlVisible(driver, LoginPageUI.PASSWORD_TXT);
 		sendkeyToElement(driver, LoginPageUI.PASSWORD_TXT, pwd);
 	}
