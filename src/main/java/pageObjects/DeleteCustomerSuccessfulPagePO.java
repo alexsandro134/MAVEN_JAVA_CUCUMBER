@@ -14,7 +14,7 @@ public class DeleteCustomerSuccessfulPagePO extends AbstractPage {
 	public HomePagePO acceptAlertToVerifyCustomerDeleted(){
 		waitForAlertPresence(driver);
 		acceptAlert(driver);
-		return BankGuruPageManagerDriver.getHomePage(driver);
+		return (HomePagePO) BankGuruPageManagerDriver.getInstance(driver, "HomePage");
 	}
 	
 	public String getAlertText(){

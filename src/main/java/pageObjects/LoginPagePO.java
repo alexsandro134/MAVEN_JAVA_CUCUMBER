@@ -19,7 +19,7 @@ public class LoginPagePO extends AbstractPage {
 	public RegisterPagePO clickToRegisterPage() {
 		waitForControlVisible(driver, LoginPageUI.HERE_LINK);
 		clickToElement(driver, LoginPageUI.HERE_LINK);
-		return BankGuruPageManagerDriver.getRegisterPage(driver);
+		return (RegisterPagePO) BankGuruPageManagerDriver.getInstance(driver, "RegisterPage");
 	}
 
 	public void inputUsername(String username) {
@@ -35,6 +35,6 @@ public class LoginPagePO extends AbstractPage {
 	public HomePagePO loginToHomePage() {
 		waitForControlVisible(driver, LoginPageUI.SUBMIT_BTN);
 		clickToElement(driver, LoginPageUI.SUBMIT_BTN);
-		return BankGuruPageManagerDriver.getHomePage(driver);
+		return (HomePagePO) BankGuruPageManagerDriver.getInstance(driver, "HomePage");
 	}
 }

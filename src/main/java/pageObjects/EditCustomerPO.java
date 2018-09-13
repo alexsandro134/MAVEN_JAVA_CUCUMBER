@@ -29,6 +29,6 @@ public class EditCustomerPO extends AbstractPage {
 	public EditCustomerDetailPO submitCustomerId() {
 		waitForControlVisible(driver, EditCustomerUI.SUBMIT_BUTTON);
 		clickToElement(driver, EditCustomerUI.SUBMIT_BUTTON);
-		return BankGuruPageManagerDriver.getEditCustomerDetaiPage(driver);
+		return (EditCustomerDetailPO) BankGuruPageManagerDriver.getInstance(driver, "EditCustomerDetailPage");
 	}
 }

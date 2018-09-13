@@ -13,7 +13,7 @@ public class DeleteAccountSuccessfulPagePO extends AbstractPage {
 
 	public HomePagePO acceptAlertToVerifyAccountDeleted(){
 		acceptAlert(driver);
-		return BankGuruPageManagerDriver.getHomePage(driver);
+		return (HomePagePO) BankGuruPageManagerDriver.getInstance(driver, "HomePage");
 	}
 	
 	public String getAlertText(){

@@ -13,7 +13,7 @@ public class NewCustomerPageSteps {
 
 	public NewCustomerPageSteps() {
 		driver = Hooks.openBrowser();
-		newCustomerPage = BankGuruPageManagerDriver.getNewCustomerPage(driver);
+		newCustomerPage = (NewCustomerPagePO) BankGuruPageManagerDriver.getInstance(driver, "NewCustomerPage");
 	}
 
 	@When("^I click to Edit Customer page$")

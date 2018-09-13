@@ -18,6 +18,6 @@ public class NewAccountPO extends AbstractPage {
 
 	public NewAccountCreateSuccessfulPO clickToSubmit() {
 		clickToElement(driver, NewAccountUI.SUBMIT_BUTTON);
-		return BankGuruPageManagerDriver.getNewAccountCreateSuccessful(driver);
+		return (NewAccountCreateSuccessfulPO) BankGuruPageManagerDriver.getInstance(driver, "NewAccountCreateSuccessfulPage");
 	}
 }

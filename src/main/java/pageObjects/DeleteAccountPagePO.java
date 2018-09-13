@@ -23,6 +23,6 @@ public class DeleteAccountPagePO extends AbstractPage {
 	public DeleteAccountSuccessfulPagePO acceptAlertToDeleteAccount() {
 		waitForAlertPresence(driver);
 		acceptAlert(driver);
-		return BankGuruPageManagerDriver.getDeteleAccountSuccessfulPage(driver);
+		return (DeleteAccountSuccessfulPagePO) BankGuruPageManagerDriver.getInstance(driver, "DeleteAccountSuccessfulPage");
 	}
 }

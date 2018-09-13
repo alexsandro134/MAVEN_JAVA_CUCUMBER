@@ -539,61 +539,61 @@ public class AbstractPage {
 	public NewCustomerPagePO openNewCustomerPage(WebDriver driver) {
 		waitForControlVisible(driver, BankGuruAbstractPageUI.DYNAMIC_MENU_LINK, "New Customer");
 		clickToElement(driver, BankGuruAbstractPageUI.DYNAMIC_MENU_LINK, "New Customer");
-		return BankGuruPageManagerDriver.getNewCustomerPage(driver);
+		return (NewCustomerPagePO) BankGuruPageManagerDriver.getInstance(driver, "NewCustomerPage");
 	}
 
 	public EditCustomerPO openEditCustomerPage(WebDriver driver) {
 		waitForControlVisible(driver, BankGuruAbstractPageUI.DYNAMIC_MENU_LINK, "Edit Customer");
 		clickToElement(driver, BankGuruAbstractPageUI.DYNAMIC_MENU_LINK, "Edit Customer");
-		return BankGuruPageManagerDriver.getEditCustomerPage(driver);
+		return (EditCustomerPO) BankGuruPageManagerDriver.getInstance(driver, "EditCustomerPage");
 	}
 
 	public NewAccountPO openNewAccountPage(WebDriver driver) {
 		waitForControlVisible(driver, BankGuruAbstractPageUI.DYNAMIC_MENU_LINK, "New Account");
 		clickToElement(driver, BankGuruAbstractPageUI.DYNAMIC_MENU_LINK, "New Account");
-		return BankGuruPageManagerDriver.getNewAccountPage(driver);
+		return (NewAccountPO) BankGuruPageManagerDriver.getInstance(driver, "NewAccountPage");
 	}
 
 	public HomePagePO openHomePage(WebDriver driver) {
 		waitForControlVisible(driver, BankGuruAbstractPageUI.DYNAMIC_MENU_LINK, "Manager");
 		clickToElement(driver, BankGuruAbstractPageUI.DYNAMIC_MENU_LINK, "Manager");
-		return BankGuruPageManagerDriver.getHomePage(driver);
+		return (HomePagePO) BankGuruPageManagerDriver.getInstance(driver, "HomePage");
 	}
 
 	public DepositPagePO openDepositPage(WebDriver driver) {
 		waitForControlVisible(driver, BankGuruAbstractPageUI.DYNAMIC_MENU_LINK, "Deposit");
 		clickToElement(driver, BankGuruAbstractPageUI.DYNAMIC_MENU_LINK, "Deposit");
-		return BankGuruPageManagerDriver.getDepositPage(driver);
+		return (DepositPagePO) BankGuruPageManagerDriver.getInstance(driver, "DepositPage");
 	}
 
 	public WithdrawPagePO openWithdrawPage(WebDriver driver) {
 		waitForControlVisible(driver, BankGuruAbstractPageUI.DYNAMIC_MENU_LINK, "Withdrawal");
 		clickToElement(driver, BankGuruAbstractPageUI.DYNAMIC_MENU_LINK, "Withdrawal");
-		return BankGuruPageManagerDriver.getWithdrawPage(driver);
+		return (WithdrawPagePO) BankGuruPageManagerDriver.getInstance(driver, "WithdrawPage");
 	}
 
 	public FundTransferPagePO openFundTransferPage(WebDriver driver) {
 		waitForControlVisible(driver, BankGuruAbstractPageUI.DYNAMIC_MENU_LINK, "Fund Transfer");
 		clickToElement(driver, BankGuruAbstractPageUI.DYNAMIC_MENU_LINK, "Fund Transfer");
-		return BankGuruPageManagerDriver.getFundTransferPage(driver);
+		return (FundTransferPagePO) BankGuruPageManagerDriver.getInstance(driver, "FundTransferPage");
 	}
 
 	public BalanceEnquiryPagePO openBalanceEnquiryPage(WebDriver driver) {
 		waitForControlVisible(driver, BankGuruAbstractPageUI.DYNAMIC_MENU_LINK, "Balance Enquiry");
 		clickToElement(driver, BankGuruAbstractPageUI.DYNAMIC_MENU_LINK, "Balance Enquiry");
-		return BankGuruPageManagerDriver.getBalanceEnquiryPage(driver);
+		return (BalanceEnquiryPagePO) BankGuruPageManagerDriver.getInstance(driver, "BalanceEnquiryPage");
 	}
 
 	public DeleteAccountPagePO openDeleteAccountPage(WebDriver driver) {
 		waitForControlVisible(driver, BankGuruAbstractPageUI.DYNAMIC_MENU_LINK, "Delete Account");
 		clickToElement(driver, BankGuruAbstractPageUI.DYNAMIC_MENU_LINK, "Delete Account");
-		return BankGuruPageManagerDriver.getDeleteAccountPage(driver);
+		return (DeleteAccountPagePO) BankGuruPageManagerDriver.getInstance(driver, "DeleteAccountPage");
 	}
 
 	public DeleteCustomerPagePO openDeleteCustomerPage(WebDriver driver) {
 		waitForControlVisible(driver, BankGuruAbstractPageUI.DYNAMIC_MENU_LINK, "Delete Customer");
 		clickToElement(driver, BankGuruAbstractPageUI.DYNAMIC_MENU_LINK, "Delete Customer");
-		return BankGuruPageManagerDriver.getDeleteCustomerPage(driver);
+		return (DeleteCustomerPagePO) BankGuruPageManagerDriver.getInstance(driver, "DeleteCustomerPage");
 	}
 	
 	public void inputDynamicLocatorBankGuru(WebDriver driver, String nameInput, String text) {

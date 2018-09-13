@@ -13,7 +13,7 @@ public class LoginPageSteps {
 	
 	public LoginPageSteps() {
 		driver = Hooks.openBrowser();
-		loginPage = BankGuruPageManagerDriver.getLoginPage(driver);
+		loginPage = (LoginPagePO) BankGuruPageManagerDriver.getInstance(driver, "LoginPage");
 	}
 
 	@Given("^I input to username \"(.*?)\"$")

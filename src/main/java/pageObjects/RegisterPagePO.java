@@ -36,6 +36,6 @@ public class RegisterPagePO extends AbstractPage {
 	
 	public LoginPagePO openUrl(String url){
 		openAnyUrl(driver, url);
-		return BankGuruPageManagerDriver.getLoginPage(driver);
+		return (LoginPagePO) BankGuruPageManagerDriver.getInstance(driver, "LoginPage");
 	}
 }

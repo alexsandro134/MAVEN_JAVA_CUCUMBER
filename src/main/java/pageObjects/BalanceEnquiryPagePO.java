@@ -18,7 +18,7 @@ public class BalanceEnquiryPagePO extends AbstractPage {
 	
 	public BalanceEnquiryDetailPagePO clickToSubmit() {
 		clickToElement(driver, BalanceEnquiryPageUI.SUBMIT_BUTTON);
-		return BankGuruPageManagerDriver.getBalanceEnquiryDetailPage(driver);
+		return (BalanceEnquiryDetailPagePO) BankGuruPageManagerDriver.getInstance(driver, "BalanceEnquiryDetailPage");
 	}
 
 }

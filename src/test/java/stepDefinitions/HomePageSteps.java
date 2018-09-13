@@ -15,7 +15,7 @@ public class HomePageSteps {
 
 	public HomePageSteps() {
 		driver = Hooks.openBrowser();
-		homePage = BankGuruPageManagerDriver.getHomePage(driver);
+		homePage = (HomePagePO) BankGuruPageManagerDriver.getInstance(driver, "HomePage");
 	}
 
 	@Then("^I verify Homepage displayed$")

@@ -18,6 +18,6 @@ public class FundTransferPagePO extends AbstractPage {
 
 	public FundTransferSuccessfulPO clickToSubmit() {
 		clickToElement(driver, FundTransferPageUI.SUBMIT_BUTTON);
-		return BankGuruPageManagerDriver.getFundTransferSuccessfulPage(driver);
+		return (FundTransferSuccessfulPO) BankGuruPageManagerDriver.getInstance(driver, "FundTransferSuccessfulPage");
 	}
 }

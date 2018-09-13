@@ -19,6 +19,6 @@ public class DepositPagePO extends AbstractPage {
 	public DepositSuccessfulPagePO clickToSubmit() {
 		waitForControlVisible(driver, DepositPageUI.SUBMIT_BUTTON);
 		clickToElement(driver, DepositPageUI.SUBMIT_BUTTON);
-		return BankGuruPageManagerDriver.getDepositSuccessfulPage(driver);
+		return (DepositSuccessfulPagePO) BankGuruPageManagerDriver.getInstance(driver, "DepositSuccessfulPage");
 	}
 }

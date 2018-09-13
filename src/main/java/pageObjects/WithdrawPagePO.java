@@ -19,6 +19,6 @@ public class WithdrawPagePO extends AbstractPage {
 	public WithdrawSuccessfulPagePO clickToSubmit() {
 		waitForControlVisible(driver, WithdrawPageUI.SUBMIT_BUTTON);
 		clickToElement(driver, WithdrawPageUI.SUBMIT_BUTTON);
-		return BankGuruPageManagerDriver.getWithdrawSuccessfulPage(driver);
+		return (WithdrawSuccessfulPagePO) BankGuruPageManagerDriver.getInstance(driver, "WithdrawSuccessfulPage");
 	}
 }

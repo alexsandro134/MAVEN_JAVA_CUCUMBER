@@ -49,6 +49,6 @@ public class NewCustomerPagePO extends AbstractPage {
 
 	public CustomerRegisterSuccessfulPO clickToSubmit() {
 		clickToElement(driver, NewCustomerPageUI.SUBMIT_BUTTON);
-		return BankGuruPageManagerDriver.getCustomerRegisterSuccessfulPage(driver);
+		return (CustomerRegisterSuccessfulPO) BankGuruPageManagerDriver.getInstance(driver, "CustomerRegisterSuccessfulPage");
 	}
 }
