@@ -3,11 +3,10 @@ package stepDefinitions;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
-import pageObjects.BankGuruPageManagerDriver;
-import pageObjects.HomePagePO;
-import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumberConfig.Hooks;
+import pageObjects.BankGuruPageManagerDriver;
+import pageObjects.HomePagePO;
 
 public class HomePageSteps {
 	WebDriver driver;
@@ -21,10 +20,5 @@ public class HomePageSteps {
 	@Then("^I verify Homepage displayed$")
 	public void iVerifyHomepageDisplayed() {
 		Assert.assertTrue(homePage.checkWelcomeMessageDisplayed());
-	}
-
-	@Given("^I click to New Customer page$")
-	public void iClickToNewCustomerPage() {
-		homePage.openNewCustomerPage(driver);
 	}
 }

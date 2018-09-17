@@ -48,8 +48,8 @@ public class Hooks {
 					driver = new InternetExplorerDriver();
 					break;
 				default:
-					ChromeDriverManager.getInstance().setup();
-					driver = new ChromeDriver();
+					FirefoxDriverManager.getInstance().setup();
+					driver = new FirefoxDriver();
 					break;
 				}
 			} catch (UnreachableBrowserException e) {

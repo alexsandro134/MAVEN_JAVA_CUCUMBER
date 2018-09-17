@@ -14,7 +14,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
-//import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -46,17 +46,17 @@ public class AbstractTest {
 			FirefoxDriverManager.getInstance().version(browserVersion).setup();
 			System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE, "true");
 			System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, workingDir + "\\FirefoxLog.txt");
-//			FirefoxOptions options = new FirefoxOptions();
-//			driver = new FirefoxDriver(options);
+			FirefoxOptions options = new FirefoxOptions();
+			driver = new FirefoxDriver(options);
 		} else if (browser.equals("firefox_headless")) {
 			FirefoxDriverManager.getInstance().version(browserVersion).setup();
 			System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE, "true");
 			System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, workingDir + "\\FirefoxLog.txt");
 			FirefoxBinary firefoxBinary = new FirefoxBinary();
 			firefoxBinary.addCommandLineOptions("--headless");
-//			FirefoxOptions firefoxOptions = new FirefoxOptions();
-//			firefoxOptions.setBinary(firefoxBinary);
-//			driver = new FirefoxDriver(firefoxOptions);
+			FirefoxOptions firefoxOptions = new FirefoxOptions();
+			firefoxOptions.setBinary(firefoxBinary);
+			driver = new FirefoxDriver(firefoxOptions);
 		} else if (browser.equals("chrome_headless")) {
 			ChromeDriverManager.getInstance().version(browserVersion).setup();
 			ChromeOptions options = new ChromeOptions();
@@ -109,7 +109,7 @@ public class AbstractTest {
 		return pass;
 	}
 
-	protected boolean verifyTrue(boolean condition) {
+	public boolean verifyTrue(boolean condition) {
 		return checkPassed(condition);
 	}
 
@@ -126,7 +126,7 @@ public class AbstractTest {
 		return pass;
 	}
 
-	protected boolean verifyFalse(boolean condition) {
+	public boolean verifyFalse(boolean condition) {
 		return checkFailed(condition);
 	}
 
@@ -145,7 +145,7 @@ public class AbstractTest {
 		return pass;
 	}
 
-	protected boolean verifyEquals(Object actual, Object expected) {
+	public boolean verifyEquals(Object actual, Object expected) {
 		return checkEquals(actual, expected);
 	}
 

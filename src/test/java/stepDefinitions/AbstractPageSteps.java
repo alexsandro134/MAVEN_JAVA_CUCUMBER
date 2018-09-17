@@ -2,58 +2,84 @@ package stepDefinitions;
 
 import org.openqa.selenium.WebDriver;
 
-import pageObjects.AbstractPagePO;
-import pageObjects.BankGuruPageManagerDriver;
-
 import commons.AbstractTest;
-
+import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import cucumberConfig.Hooks;
+import pageObjects.AbstractPagePO;
+import pageObjects.BankGuruPageManagerDriver;
+import pageObjects.EditCustomerPO;
+import pageObjects.HomePagePO;
+import pageObjects.NewCustomerPagePO;
 
 public class AbstractPageSteps {
 	WebDriver driver;
-	private AbstractPagePO abtractPage;
+	private AbstractPagePO abstractPage;
 	private AbstractTest abstractTest;
-	
+	private NewCustomerPagePO newCustomerPage;
+	private EditCustomerPO editCustomerPage;
+	private HomePagePO homePage;
+
 	public AbstractPageSteps() {
 		driver = Hooks.openBrowser();
-		abtractPage = (AbstractPagePO) BankGuruPageManagerDriver.getInstance(driver, "AbstractPage");
+		abstractPage = (AbstractPagePO) BankGuruPageManagerDriver.getInstance(driver, "AbstractPage");
 		abstractTest = new AbstractTest();
 	}
 
 	@When("^I input to \"(.*?)\" textbox with data \"(.*?)\"$")
 	public void iInputToDynamicTextboxWithDynamicData(String textboxName, String value) {
-		abtractPage.inputToDynamicTextbox(textboxName, value);
+		abstractPage.inputToDynamicTextbox(textboxName, value);
 	}
 
 	@When("^I input to \"(.*?)\" textarea with data \"(.*?)\"$")
 	public void iInputToDynamicTextareaWithDynamicData(String textareName, String value) {
-		abtractPage.inputToDynamicTextbox(textareName, value);
+		abstractPage.inputToDynamicTextarea(textareName, value);
 	}
 
 	@When("^I input to \"(.*?)\" textbox with random data \"(.*?)\"$")
 	public void iInputToDynamicTextboxWithRandomData(String textboxName, String value) {
 		value = value + abstractTest.generateEmail();
-		abtractPage.inputToDynamicTextbox(textboxName, value);
+		abstractPage.inputToDynamicTextbox(textboxName, value);
 	}
 
 	@When("^I input to \"(.*?)\" textarea with random data \"(.*?)\"$")
 	public void iInputToDynamicTextareaWithRandomData(String textareName, String value) {
 		value = value + abstractTest.generateEmail();
-		abtractPage.inputToDynamicTextbox(textareName, value);
+		abstractPage.inputToDynamicTextarea(textareName, value);
 	}
-	
+
 	@When("^I click to \"(.*?)\" button$")
 	public void iClickToDynamicButton(String buttonName) {
-		abtractPage.clickToDynamicButton(buttonName);
+		abstractPage.clickToDynamicButton(buttonName);
 	}
 
 	@When("^I click to \"(.*?)\" radio button$")
 	public void iClickToDynamicRadioButton(String radiobuttonName) {
-		abtractPage.clickToDynamicRadioButton(radiobuttonName);
+		abstractPage.clickToDynamicRadioButton(radiobuttonName);
+	}
+
+	@When("^I open \"(.*?)\" page$")
+	public void iOpenDynamicPage(String pageName) {
+		switch (pageName) {
+		case "New Customer":
+			newCustomerPage = abstractPage.openNewCustomerPage(driver);
+			break;
+		case "Edit Customer":
+			editCustomerPage = abstractPage.openEditCustomerPage(driver);
+			break;
+		default:
+			homePage = abstractPage.openHomePage(driver);
+			break;
+		}
 	}
 	
-	@When("^I open \"(.*?)\" page$")
-	public void iOpenDymanicPage(String pageName) {
+	@Then("^I verify success message displayed with \"(.*?)\"$")
+	public void iVerifyDynamicSuccessMessageDisplayed(String message) {
+		abstractTest.verifyTrue(abstractPage.isDynamicSuccessMessageDisplayed(message));
+	}
+	
+	@Then("^I verify expected data at \"(.*?)\" label equal actual data \"(.*?)\"$")
+	public void iVerifyExpectedDataAtLabelEqualActualData(String labelName, String actualData) throws Throwable {
+		abstractTest.verifyEquals(actualData, abstractPage.getDataDynamicLabelInTable(labelName));
 	}
 }

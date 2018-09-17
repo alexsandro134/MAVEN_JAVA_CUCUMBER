@@ -6,6 +6,7 @@ import pageObjects.BankGuruPageManagerDriver;
 import pageObjects.NewCustomerPagePO;
 import cucumber.api.java.en.When;
 import cucumberConfig.Hooks;
+import interfaces.NewCustomerPageUI;
 
 public class NewCustomerPageSteps {
 	WebDriver driver;
@@ -20,15 +21,10 @@ public class NewCustomerPageSteps {
 	public void iClickToEditCustomerPage() {
 		newCustomerPage.openEditCustomerPage(driver);
 	}
-	
-//	@When("^I input all information to New Customer form$")
-//	public void iInputAllInformationToNewCustomerForm() {
-//
-//	}
-//
-//	@When("^I click to Submit button$")
-//	public void iClickToSubmitButton() {
-//		newCustomerPage.clickToSubmit();
-//	}
 
+	@When("^I input to dob textbox with data \"(.*?)\"$")
+	public void iInputDob(String value) {
+		newCustomerPage.removeAttributeOfElement(driver, NewCustomerPageUI.CUSTOMER_DOB, "type");
+		newCustomerPage.sendkeyToElement(driver, NewCustomerPageUI.CUSTOMER_DOB, value);
+	}
 }
