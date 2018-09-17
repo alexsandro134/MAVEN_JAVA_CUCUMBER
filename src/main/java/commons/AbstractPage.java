@@ -597,7 +597,7 @@ public class AbstractPage {
 	}
 	
 	public void inputDynamicLocatorBankGuru(WebDriver driver, String nameInput, String text) {
-		waitForControlVisible(driver, BankGuruAbstractPageUI.DYNAMIC_INPUT_INFORMATION, nameInput);
-		sendkeyToElement(driver, text, BankGuruAbstractPageUI.DYNAMIC_INPUT_INFORMATION, nameInput);
+		waitForControlVisible(driver, BankGuruAbstractPageUI.DYNAMIC_TEXTBOX, nameInput);
+		sendkeyToElement(driver, text, BankGuruAbstractPageUI.DYNAMIC_TEXTBOX, nameInput);
 	}
 }

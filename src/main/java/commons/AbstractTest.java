@@ -27,7 +27,7 @@ public class AbstractTest {
 
 	protected final Log log;
 
-	protected AbstractTest() {
+	public AbstractTest() {
 		log = LogFactory.getLog(getClass());
 	}
 

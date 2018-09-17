@@ -20,7 +20,7 @@ import cucumber.api.junit.Cucumber;
 		snippets = SnippetType.CAMELCASE, 
 		
 		// run tag
-		tags = { "@payment" })
+		tags = { "@payment_commonSteps" })
 
 public class RunCucumber {
 
