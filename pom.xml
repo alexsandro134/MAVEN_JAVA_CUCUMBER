@@ -7,7 +7,7 @@
 	<name>MAVEN_JAVA_CUCUMER_04_TAILT</name>
 
 	<properties>
-		<cucumber.version> 1.2.2 </cucumber.version>
+		<cucumber.version> 1.2.4 </cucumber.version>
 		<selenium.version> 3.14.0 </selenium.version>
 	</properties>
 
@@ -24,6 +24,19 @@
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 			<version>1.2.16</version>
+		</dependency>
+
+		<dependency>
+			<groupId>info.cukes</groupId>
+			<artifactId>cucumber-picocontainer</artifactId>
+			<version>1.2.5</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>net.masterthought</groupId>
+			<artifactId>cucumber-reporting</artifactId>
+			<version>3.20.0</version>
 		</dependency>
 
 		<dependency>
@@ -54,8 +67,10 @@
 			<artifactId>selenium-java</artifactId>
 			<version>${selenium.version}</version>
 		</dependency>
+
+
 	</dependencies>
-	
+
 	<build>
 		<plugins>
 			<!-- Compile code -->
@@ -69,7 +84,7 @@
 					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
-			
+
 			<!-- Run testcase/test suite -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -80,6 +95,29 @@
 						<include>**/*/RunCucumber.java</include>
 					</includes>
 				</configuration>
+			</plugin>
+			
+			<!-- Generate report -->
+			<plugin>
+				<groupId>net.masterthought</groupId>
+				<artifactId>maven-cucumber-reporting</artifactId>
+				<version>3.10.0</version>
+				<executions>
+					<execution>
+						<id>execution</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<projectName>JAVA CUCUMBER REPORT - BANK GURU</projectName>
+							<outputDirectory>${project.build.directory}/site/cucumber-reporting</outputDirectory>
+							<cucumberOutput>${project.build.directory}/site/cucumber.json</cucumberOutput>
+							<enableFlashCharts>true</enableFlashCharts>
+							<skippedFails>true</skippedFails>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

@@ -4,7 +4,7 @@ Feature: PAYMENT FEATURE
   I want to check payment process
   So that I can make sure this function work well
 
-  Scenario Outline: [PRE-DATA] - REGISTER/ LOGIN
+  Scenario Outline: [PAYMENT] - NEW CUSTOMER
     # Put in particular page steps
     Given I input to "uid" textbox with data "mngr152931"
     And I input to "password" textbox with data "dAmumYb"
@@ -30,8 +30,17 @@ Feature: PAYMENT FEATURE
     And I verify expected data at "City" label equal actual data "<City>"
     And I verify expected data at "State" label equal actual data "<State>"
     And I verify expected data at "Pin" label equal actual data "<Pin>"
-    And I open "Edit Customer" page
-
+		And I get Customer ID
+		
     Examples: 
       | Name      | Dob        | Address     | City   | State    | Pin    | Phone      | Email       | Password |
       | Auto Test | 1991-04-13 | 123 Address | Ha Noi | Cau Giay | 123456 | 0123456999 | Automation_ |   111111 |
+
+  Scenario Outline: [PAYMENT] - EDIT EXISTING CUSTOMER
+    Given I open "Edit Customer" page
+    When I input to Customer ID
+    And I click to "AccSubmit" button
+
+    Examples: 
+      | AccountType | DepositAmount |
+      | Current     |         50000 |

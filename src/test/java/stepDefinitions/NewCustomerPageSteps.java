@@ -8,7 +8,7 @@ import cucumber.api.java.en.When;
 import cucumberConfig.Hooks;
 import interfaces.NewCustomerPageUI;
 
-public class NewCustomerPageSteps {
+public class NewCustomerPageSteps{
 	WebDriver driver;
 	private NewCustomerPagePO newCustomerPage;
 
@@ -26,5 +26,19 @@ public class NewCustomerPageSteps {
 	public void iInputDob(String value) {
 		newCustomerPage.removeAttributeOfElement(driver, NewCustomerPageUI.CUSTOMER_DOB, "type");
 		newCustomerPage.sendkeyToElement(driver, NewCustomerPageUI.CUSTOMER_DOB, value);
+	}
+	
+	@When("^I input (first|second) Account ID$")
+	public void iInputFirstAccountId(String accountType) {
+		if(accountType.equals("first")) {
+			//input first
+		} else {
+			//input second
+		}
+	}
+	
+	@When("^I (?:transfer|withdraw) to \"(.*?)\" USD$")
+	public void iTransferWithdrawToSomethingUSD(String amount) {
+		
 	}
 }
