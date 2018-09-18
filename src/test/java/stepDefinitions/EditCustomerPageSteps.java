@@ -22,5 +22,4 @@ public class EditCustomerPageSteps {
 	public void iInputToCustomerID() {
 		editCustomerPage.inputCustomerID(shareData.customerID);
 	}
-
 }

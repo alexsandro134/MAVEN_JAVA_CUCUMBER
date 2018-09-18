@@ -47,8 +47,16 @@ public class NewCustomerPagePO extends AbstractPage {
 			return false;
 	}
 
-	public CustomerRegisterSuccessfulPO clickToSubmit() {
+	public void clickToSubmit() {
 		clickToElement(driver, NewCustomerPageUI.SUBMIT_BUTTON);
-		return (CustomerRegisterSuccessfulPO) BankGuruPageManagerDriver.getInstance(driver, "CustomerRegisterSuccessfulPage");
+	}
+	
+	public boolean checkNewCustomerRegistered() {
+		waitForControlVisible(driver, NewCustomerPageUI.SUCCESSFUL_MESSAGE);
+		return isControlDisplayed(driver, NewCustomerPageUI.SUCCESSFUL_MESSAGE);
+	}
+	
+	public String getCustomerId() {
+		return getTextElement(driver, NewCustomerPageUI.CUSTOMER_ID);
 	}
 }

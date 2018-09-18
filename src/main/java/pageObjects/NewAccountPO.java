@@ -16,8 +16,19 @@ public class NewAccountPO extends AbstractPage {
 		selectItemInDropdown(driver, NewAccountUI.ACCOUNT_TYPE_SELECT, textItem);
 	}
 
-	public NewAccountCreateSuccessfulPO clickToSubmit() {
+	public void clickToSubmit() {
 		clickToElement(driver, NewAccountUI.SUBMIT_BUTTON);
-		return (NewAccountCreateSuccessfulPO) BankGuruPageManagerDriver.getInstance(driver, "NewAccountCreateSuccessfulPage");
+	}
+
+	public boolean checkNewAccountCreated() {
+		return isControlDisplayed(driver, NewAccountUI.SUCCESSFUL_MESSAGE);
+	}
+
+	public String getCurrentAmount() {
+		return getTextElement(driver, NewAccountUI.CURRENT_AMOUNT);
+	}
+
+	public String getAccountId() {
+		return getTextElement(driver, NewAccountUI.ACCOUNT_ID);
 	}
 }

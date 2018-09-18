@@ -11,10 +11,8 @@ public class BankGuruPageManagerDriver {
 	private static NewCustomerPagePO newCustomerPage;
 	private static EditCustomerPO editCustomerPage;
 	private static NewAccountPO newAccountPage;
-	private static CustomerRegisterSuccessfulPO customerRegisterSuccessfulPage;
 	private static EditCustomerDetailPO editCustomerDetailPage;
 	private static EditCustomerSuccessfulPO editCustomerSuccessfulPage;
-	private static NewAccountCreateSuccessfulPO newAccountSuccessfulPage;
 	private static DepositPagePO depositPage;
 	private static DepositSuccessfulPagePO depositSuccessfulPage;
 	private static WithdrawPagePO withdrawPage;
@@ -67,12 +65,6 @@ public class BankGuruPageManagerDriver {
 			}
 			return newAccountPage;
 
-		case "CustomerRegisterSuccessfulPage":
-			if (customerRegisterSuccessfulPage == null) {
-				return new CustomerRegisterSuccessfulPO(driver);
-			}
-			return customerRegisterSuccessfulPage;
-
 		case "EditCustomerDetailPage":
 			if (editCustomerDetailPage == null) {
 				return new EditCustomerDetailPO(driver);
@@ -84,12 +76,6 @@ public class BankGuruPageManagerDriver {
 				return new EditCustomerSuccessfulPO(driver);
 			}
 			return editCustomerSuccessfulPage;
-
-		case "NewAccountCreateSuccessfulPage":
-			if (newAccountSuccessfulPage == null) {
-				return new NewAccountCreateSuccessfulPO(driver);
-			}
-			return newAccountSuccessfulPage;
 
 		case "DepositPage":
 			if (depositPage == null) {

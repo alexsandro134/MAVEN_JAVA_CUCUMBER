@@ -16,7 +16,7 @@ import cucumber.api.junit.Cucumber;
 		glue = "stepDefinitions", 
 		
 		monochrome = true, 
-		plugin = { "pretty", "html:target/site/cucumber-report-default", "junit:target/site/cucumber.json" }, 
+		plugin = { "pretty", "html:target/site/cucumber-report-default", "json:target/site/cucumber.json" }, 
 		snippets = SnippetType.CAMELCASE, 
 		
 		// run tag

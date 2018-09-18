@@ -30,17 +30,45 @@ Feature: PAYMENT FEATURE
     And I verify expected data at "City" label equal actual data "<City>"
     And I verify expected data at "State" label equal actual data "<State>"
     And I verify expected data at "Pin" label equal actual data "<Pin>"
-		And I get Customer ID
-		
+    When I get Customer ID
+
     Examples: 
       | Name      | Dob        | Address     | City   | State    | Pin    | Phone      | Email       | Password |
       | Auto Test | 1991-04-13 | 123 Address | Ha Noi | Cau Giay | 123456 | 0123456999 | Automation_ |   111111 |
 
-  Scenario Outline: [PAYMENT] - EDIT EXISTING CUSTOMER
+  Scenario: [PAYMENT] - EDIT EXISTING CUSTOMER
     Given I open "Edit Customer" page
     When I input to Customer ID
     And I click to "AccSubmit" button
 
+  Scenario Outline: [TC_02] - CREATE 2 NEW ACCOUNTs
+    Given I open "New Account" page
+    When I input to Customer ID
+    And I select value is "<AccountType>" in dropdown list "selaccount"
+    When I input to "inideposit" textbox with data "<DepositAmount>"
+    And I click to "button2" button
+    Then I verify success message displayed with "Account Generated Successfully!!!"
+    And I get infor of first account
+    When I open "New Account" page
+    And I input to Customer ID
+    And I select value is "<AccountType>" in dropdown list "selaccount"
+    And I input to "inideposit" textbox with data "<DepositAmount>"
+    And I click to "button2" button
+    Then I verify success message displayed with "Account Generated Successfully!!!"
+    And I get infor of second account
+
     Examples: 
       | AccountType | DepositAmount |
       | Current     |         50000 |
+
+  Scenario Outline: [TC_03] - DEPOSIT TO ACCOUNT
+    Given I open "Deposit" page
+    When I input to first account number
+    When I input to "ammount" textbox with data "<FisrtAmount>"
+    When I input to "desc" textbox with data "<DepositDes>"
+    And I click to "AccSubmit" button
+    Then I verify success message displayed with "Transaction details of Deposit for Account"
+
+    Examples: 
+      | FisrtAmount | DepositDes         |
+      |       50000 | Deposit to Account |

@@ -8,8 +8,10 @@ import cucumber.api.java.en.When;
 import cucumberConfig.Hooks;
 import pageObjects.AbstractPagePO;
 import pageObjects.BankGuruPageManagerDriver;
+import pageObjects.DepositPagePO;
 import pageObjects.EditCustomerPO;
 import pageObjects.HomePagePO;
+import pageObjects.NewAccountPO;
 import pageObjects.NewCustomerPagePO;
 
 public class AbstractPageSteps {
@@ -19,6 +21,8 @@ public class AbstractPageSteps {
 	private NewCustomerPagePO newCustomerPage;
 	private EditCustomerPO editCustomerPage;
 	private HomePagePO homePage;
+	private NewAccountPO newAccountPage;
+	private DepositPagePO depositPage;
 
 	public AbstractPageSteps() {
 		driver = Hooks.openBrowser();
@@ -67,6 +71,12 @@ public class AbstractPageSteps {
 		case "Edit Customer":
 			editCustomerPage = abstractPage.openEditCustomerPage(driver);
 			break;
+		case "New Account":
+			newAccountPage = abstractPage.openNewAccountPage(driver);
+			break;
+		case "Deposit":
+			depositPage = abstractPage.openDepositPage(driver);
+			break;
 		default:
 			homePage = abstractPage.openHomePage(driver);
 			break;
@@ -75,6 +85,7 @@ public class AbstractPageSteps {
 	
 	@Then("^I verify success message displayed with \"(.*?)\"$")
 	public void iVerifyDynamicSuccessMessageDisplayed(String message) {
+		message = message + ShareData.accountID_1;
 		abstractTest.verifyTrue(abstractPage.isDynamicSuccessMessageDisplayed(message));
 	}
 	

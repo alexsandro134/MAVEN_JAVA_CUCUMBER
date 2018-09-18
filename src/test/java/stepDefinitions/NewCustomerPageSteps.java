@@ -2,18 +2,20 @@ package stepDefinitions;
 
 import org.openqa.selenium.WebDriver;
 
-import pageObjects.BankGuruPageManagerDriver;
-import pageObjects.NewCustomerPagePO;
 import cucumber.api.java.en.When;
 import cucumberConfig.Hooks;
 import interfaces.NewCustomerPageUI;
+import pageObjects.BankGuruPageManagerDriver;
+import pageObjects.NewCustomerPagePO;
 
-public class NewCustomerPageSteps{
+public class NewCustomerPageSteps extends ShareData{
 	WebDriver driver;
 	private NewCustomerPagePO newCustomerPage;
+	private ShareData shareData;
 
-	public NewCustomerPageSteps() {
+	public NewCustomerPageSteps(ShareData shareData) {
 		driver = Hooks.openBrowser();
+		this.shareData = shareData;
 		newCustomerPage = (NewCustomerPagePO) BankGuruPageManagerDriver.getInstance(driver, "NewCustomerPage");
 	}
 
@@ -27,18 +29,23 @@ public class NewCustomerPageSteps{
 		newCustomerPage.removeAttributeOfElement(driver, NewCustomerPageUI.CUSTOMER_DOB, "type");
 		newCustomerPage.sendkeyToElement(driver, NewCustomerPageUI.CUSTOMER_DOB, value);
 	}
-	
+
 	@When("^I input (first|second) Account ID$")
 	public void iInputFirstAccountId(String accountType) {
-		if(accountType.equals("first")) {
-			//input first
+		if (accountType.equals("first")) {
+			// input first
 		} else {
-			//input second
+			// input second
 		}
 	}
-	
+
 	@When("^I (?:transfer|withdraw) to \"(.*?)\" USD$")
 	public void iTransferWithdrawToSomethingUSD(String amount) {
-		
+
+	}
+
+	@When("^I get Customer ID$")
+	public void iGetCustomerID() {
+		shareData.customerID = newCustomerPage.getCustomerId();
 	}
 }
