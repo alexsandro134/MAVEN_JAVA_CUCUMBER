@@ -85,9 +85,15 @@ public class AbstractPageSteps {
 	
 	@Then("^I verify success message displayed with \"(.*?)\"$")
 	public void iVerifyDynamicSuccessMessageDisplayed(String message) {
-		message = message + ShareData.accountID_1;
 		abstractTest.verifyTrue(abstractPage.isDynamicSuccessMessageDisplayed(message));
 	}
+	
+	@Then("^I verify success message displayed with data \"(.*?)\"$")
+	public void iVerifyDynamicSuccessMessageDisplayedWithData(String message) {
+		message = message + " " + ShareData.accountID_1;
+		abstractTest.verifyTrue(abstractPage.isDynamicSuccessMessageDisplayed(message));
+	}
+	
 	
 	@Then("^I verify expected data at \"(.*?)\" label equal actual data \"(.*?)\"$")
 	public void iVerifyExpectedDataAtLabelEqualActualData(String labelName, String actualData) throws Throwable {

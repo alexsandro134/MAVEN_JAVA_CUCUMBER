@@ -67,7 +67,7 @@ Feature: PAYMENT FEATURE
     When I input to "ammount" textbox with data "<FisrtAmount>"
     When I input to "desc" textbox with data "<DepositDes>"
     And I click to "AccSubmit" button
-    Then I verify success message displayed with "Transaction details of Deposit for Account"
+    Then I verify success message displayed with data "Transaction details of Deposit for Account"
 
     Examples: 
       | FisrtAmount | DepositDes         |

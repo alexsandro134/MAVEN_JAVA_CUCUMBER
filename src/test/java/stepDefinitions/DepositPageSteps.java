@@ -10,16 +10,16 @@ import pageObjects.DepositPagePO;
 public class DepositPageSteps {
 	WebDriver driver;
 	private DepositPagePO depositPage;
-	private ShareData shareData;
+//	private ShareData shareData;
 
-	public DepositPageSteps(ShareData shareData) {
+	public DepositPageSteps() {
 		driver = Hooks.openBrowser();
-		this.shareData = shareData;
+//		this.shareData = shareData;
 		depositPage = (DepositPagePO) BankGuruPageManagerDriver.getInstance(driver, "DepositPage");
 	}
 
 	@When("^I input to first account number$")
 	public void iInputToFirstAccountNumber() {
-		depositPage.inputDynamicLocatorWithText(shareData.accountID_1, "accountno");
+		depositPage.inputDynamicLocatorWithText(ShareData.accountID_1, "accountno");
 	}
 }

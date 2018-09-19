@@ -11,11 +11,9 @@ import pageObjects.NewAccountPO;
 public class NewAccountPageSteps {
 	WebDriver driver;
 	private NewAccountPO newAccountPage;
-	private ShareData shareData;
 
-	public NewAccountPageSteps(ShareData shareData) {
+	public NewAccountPageSteps() {
 		driver = Hooks.openBrowser();
-		this.shareData = shareData;
 		newAccountPage = (NewAccountPO) BankGuruPageManagerDriver.getInstance(driver, "NewAccountPage");
 	}
 
@@ -27,9 +25,9 @@ public class NewAccountPageSteps {
 	@Then("^I get infor of (first|second) account$")
 	public void iGetInforOfFirstAccount(String account) {
 		if (account.equalsIgnoreCase("first")) {
-			shareData.accountID_1 = newAccountPage.getAccountId();
+			ShareData.accountID_1 = newAccountPage.getAccountId();
 		} else if (account.equalsIgnoreCase("second")) {
-			shareData.accountID_2 = newAccountPage.getAccountId();
+			ShareData.accountID_2 = newAccountPage.getAccountId();
 		}
 	}
 }

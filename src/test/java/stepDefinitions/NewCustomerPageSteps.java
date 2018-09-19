@@ -11,11 +11,9 @@ import pageObjects.NewCustomerPagePO;
 public class NewCustomerPageSteps extends ShareData{
 	WebDriver driver;
 	private NewCustomerPagePO newCustomerPage;
-	private ShareData shareData;
 
-	public NewCustomerPageSteps(ShareData shareData) {
+	public NewCustomerPageSteps() {
 		driver = Hooks.openBrowser();
-		this.shareData = shareData;
 		newCustomerPage = (NewCustomerPagePO) BankGuruPageManagerDriver.getInstance(driver, "NewCustomerPage");
 	}
 
@@ -46,6 +44,6 @@ public class NewCustomerPageSteps extends ShareData{
 
 	@When("^I get Customer ID$")
 	public void iGetCustomerID() {
-		shareData.customerID = newCustomerPage.getCustomerId();
+		ShareData.customerID = newCustomerPage.getCustomerId();
 	}
 }
