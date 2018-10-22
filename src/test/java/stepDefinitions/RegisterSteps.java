@@ -2,6 +2,7 @@ package stepDefinitions;
 
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
@@ -35,12 +36,11 @@ public class RegisterSteps {
 	@When("^I input email and password$")
 	public void iInputEmailAndPassword(DataTable table) {
 		// 01
-		// List<Map<String, String>> user = table.asMaps(String.class,
-		// String.class);
-		// driver.findElement(By.xpath("//input[@id='email']")).clear();
-		// driver.findElement(By.xpath("//input[@id='email']")).sendKeys(user.get(0).get("User"));
-		// driver.findElement(By.xpath("//input[@id='pass']")).clear();
-		// driver.findElement(By.xpath("//input[@id='pass']")).sendKeys(user.get(0).get("Password"));
+		List<Map<String, String>> user = table.asMaps(String.class, String.class);
+		driver.findElement(By.xpath("//input[@id='email']")).clear();
+		driver.findElement(By.xpath("//input[@id='email']")).sendKeys(user.get(0).get("User"));
+		driver.findElement(By.xpath("//input[@id='pass']")).clear();
+		driver.findElement(By.xpath("//input[@id='pass']")).sendKeys(user.get(0).get("Password"));
 
 		// 02
 		for (Map<String, String> customer : table.asMaps(String.class, String.class)) {
@@ -63,7 +63,7 @@ public class RegisterSteps {
 	public void iClickToLoginButton() {
 		driver.findElement(By.xpath("//button[@id='send2']")).click();
 	}
-	
+
 	@When("^I quit browser$")
 	public void iQuitBrowser() {
 		driver.quit();
