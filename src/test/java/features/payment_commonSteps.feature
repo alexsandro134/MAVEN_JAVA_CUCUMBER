@@ -6,8 +6,8 @@ Feature: PAYMENT FEATURE
 
   Scenario Outline: [PAYMENT] - NEW CUSTOMER
     # Put in particular page steps
-    Given I input to "uid" textbox with data "mngr152931"
-    And I input to "password" textbox with data "dAmumYb"
+    Given I input to "uid" textbox with data "mngr159985"
+    And I input to "password" textbox with data "UzazEmU"
     When I click to "btnLogin" button
     Then I verify Homepage displayed
     When I open "New Customer" page
